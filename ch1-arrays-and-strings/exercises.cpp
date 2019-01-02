@@ -1,12 +1,21 @@
 #include <iostream>
+#include <string>
+#include <map>
 
 using namespace std;
 
-bool isUnique(const char* s) {
-  cout << s << endl;
+/** Naive solution. What if you cannot use additional data structures? */
+bool isUnique(string s) {
+  map<char, int> charCount;
+  for (int i=0; i<s.length(); i++){
+    charCount[s[i]]++;
+    if (charCount[s[i]] > 1)
+      return false;
+  }
   return true;
 }
 
 int main() {
-  isUnique("hi there");
+  cout << "'hellothere' is unique? "<< isUnique("hellothere") << endl;
+  cout << "'video' is unique? "<< isUnique("video") << endl;
 }
